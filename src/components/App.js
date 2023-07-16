@@ -7,12 +7,15 @@ const App = () => {
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [message, setMessage] = useState("");
 
-  function validate(){
+  function validate(e){
     if(name && password){
+      e.preventDefault();
       setName("")
       setPassword("")
       setIsLoggedIn(true);
+      setMessage("You are logged in!")
       return;
     }
   }
@@ -32,6 +35,7 @@ const App = () => {
               <br/><br/>
               <button type="submit" onClick={validate}>Login</button>
             </form>
+            <p>{message}</p>
           </div>
         </div>
     </div>
